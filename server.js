@@ -56,6 +56,7 @@ client.connect(err => {
     })
 
     app.get('/orders', (req, res) => {
+        // orderCollection.find({ 'orderPd.author': { $exists: true } }, { 'orderPd.author': req.query.email })
         orderCollection.find({ email: req.query.email })
             .toArray((err, result) => {
                 res.send(result);
